@@ -109,10 +109,18 @@ class TreeOrders:
 
     def post_order(self):
         self.result = []
-        # Finish the implementation
-        # You may need to add a new recursive method to do that
+        if self.root:
+            self._postorder(self.root)
 
         return self.result
+
+    def _postorder(self, cur_node):
+        if cur_node:
+            if cur_node.left_child:
+                self._postorder(cur_node.left_child)
+            if cur_node.right_child:
+                self._postorder(cur_node.right_child)
+            self.result.append(cur_node.data)
 
 
 def main():
