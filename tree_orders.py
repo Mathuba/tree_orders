@@ -80,17 +80,32 @@ class TreeOrders:
 
     def in_order(self):
         self.result = []
-        # Finish the implementation
-        # You may need to add a new recursive method to do that
-
+        if self.root:
+            self._inorder(self.root)
         return self.result
+
+    def _inorder(self, cur_node):
+        if cur_node:
+            if cur_node.left_child:
+                self._inorder(cur_node.left_child)
+            self.result.append(cur_node.data)
+            if cur_node.right_child:
+                self._inorder(cur_node.right_child)
 
     def pre_order(self):
         self.result = []
-        # Finish the implementation
-        # You may need to add a new recursive method to do that
+        if self.root:
+            self._preorder(self.root)
 
         return self.result
+
+    def _preorder(self, cur_node):
+        if cur_node:
+            self.result.append(cur_node.data)
+            if cur_node.left_child:
+                self._preorder(cur_node.left_child)
+            if cur_node.right_child:
+                self._preorder(cur_node.right_child)
 
     def post_order(self):
         self.result = []
